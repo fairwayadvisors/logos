@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fairwayadvisors.ai - Locally Powered AI & Data Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --slate: #475569;
+            --copper: #b87333;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --light-gray: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --gradient-start: rgba(71, 85, 105, 0.03);
+            --gradient-end: rgba(184, 115, 51, 0.03);
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        .topbar {
+            background: var(--slate);
+            color: white;
+            padding: 0.5rem 6%;
+            font-size: 0.85rem;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .topbar strong {
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 6%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .brand svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .brand-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-text .fairway { color: var(--slate); }
+        .brand-text .advisors { color: var(--copper); }
+        .brand-text .ai { color: var(--slate); }
+
+        .brand-sub {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-items a:hover {
+            color: var(--copper);
+        }
+
+        .nav-cta {
+            padding: 0.65rem 1.5rem;
+            background: var(--copper);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-cta:hover {
+            background: var(--slate);
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            padding: 5rem 6%;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--slate);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .highlight {
+            color: var(--copper);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--copper);
+            opacity: 0.3;
+        }
+
+        .hero-lead {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--copper);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item::before {
+            content: '●';
+            color: var(--copper);
+            font-size: 1.2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--slate);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--copper);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184, 115, 51, 0.2);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--slate);
+            border: 2px solid var(--slate);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--slate);
+            color: white;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            max-width: 360px;
+            filter: drop-shadow(0 16px 32px rgba(71, 85, 105, 0.15));
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--copper);
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulse 3s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        .features {
+            padding: 5rem 6%;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--copper) 0%, var(--slate) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(71, 85, 105, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .process {
+            padding: 5rem 6%;
+            background: linear-gradient(135deg, var(--slate) 0%, #5a6d7e 100%);
+            color: white;
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .process-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .process-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .process-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-item::after {
+            content: '→';
+            position: absolute;
+            top: 35px;
+            right: -1.5rem;
+            font-size: 2.5rem;
+            color: var(--copper);
+            font-weight: 300;
+        }
+
+        .process-item:last-child::after {
+            display: none;
+        }
+
+        .process-number {
+            width: 70px;
+            height: 70px;
+            background: var(--copper);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .process-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .process-item p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .local {
+            padding: 5rem 6%;
+            background: white;
+        }
+
+        .local-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .local-content h2 {
+            font-size: 2.5rem;
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .local-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .local-highlight {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-left: 4px solid var(--copper);
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .local-highlight p {
+            font-size: 1.2rem;
+            color: var(--slate);
+            font-weight: 500;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .local-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(71, 85, 105, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-final {
+            padding: 5rem 6%;
+            background: linear-gradient(135deg, var(--copper) 0%, #d09863 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-final h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-final p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-final .btn-primary {
+            background: white;
+            color: var(--slate);
+            font-size: 1.1rem;
+            padding: 1.1rem 2.5rem;
+        }
+
+        .cta-final .btn-primary:hover {
+            background: var(--off-white);
+        }
+
+        footer {
+            padding: 3rem 6%;
+            background: var(--slate);
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container,
+            .local-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-items {
+                display: none;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-item::after {
+                display: none;
+            }
+
+            .local-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        Proudly serving <strong>Central Indiana</strong> businesses with cutting-edge AI & data advisory
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <div class="brand">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 50,10 Q 70,10 80,25 Q 85,35 80,45 L 50,82 L 20,45 Q 15,35 20,25 Q 30,10 50,10 Z" fill="none" stroke="#475569" stroke-width="2.5"/>
+                    <path d="M 50,16 Q 66,16 74,28 Q 78,36 74,44 L 50,74 L 26,44 Q 22,36 26,28 Q 34,16 50,16 Z" fill="#f8fafc" stroke="#475569" stroke-width="0.5"/>
+                    <circle cx="50" cy="40" r="14" fill="none" stroke="#475569" stroke-width="1"/>
+                    <line x1="36" y1="40" x2="64" y2="40" stroke="#b87333" stroke-width="2"/>
+                    <line x1="50" y1="26" x2="50" y2="54" stroke="#b87333" stroke-width="2"/>
+                    <circle cx="50" cy="40" r="3.5" fill="#b87333"/>
+                    <circle cx="36" cy="40" r="2" fill="#475569"/>
+                    <circle cx="64" cy="40" r="2" fill="#475569"/>
+                    <circle cx="50" cy="26" r="2" fill="#475569"/>
+                    <circle cx="50" cy="54" r="2" fill="#475569"/>
+                </svg>
+                <div>
+                    <div class="brand-text">
+                        <span class="fairway">fairway</span><span class="advisors">advisors</span><span class="ai">.ai</span>
+                    </div>
+                    <div class="brand-sub">Locally Powered</div>
+                </div>
+            </div>
+            <ul class="nav-items">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#local">Local Focus</a></li>
+            </ul>
+            <button class="nav-cta">Connect Now</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>It's like having a <span class="highlight">caddy</span> for your business.</h1>
+                <div class="hero-lead">
+                    Fractional CIO, CTO, & AI Advisory services. Extraordinarily local to central Indiana. We deliver tailored strategic advisory and technology leadership services designed to empower growing businesses with expert guidance and measurable results.
+                </div>
+                <div class="hero-meta">
+                    <div class="meta-item">AI Strategy</div>
+                    <div class="meta-item">Data Analytics</div>
+                    <div class="meta-item">Local Expertise</div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#features" class="btn-primary">Explore Services</a>
+                    <a href="#local" class="btn-secondary">Why Local Matters</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="pulse-ring"></div>
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 100,20 Q 140,20 160,50 Q 170,70 160,90 L 100,164 L 40,90 Q 30,70 40,50 Q 60,20 100,20 Z" fill="none" stroke="#475569" stroke-width="3"/>
+                    <path d="M 100,32 Q 132,32 148,56 Q 156,72 148,88 L 100,148 L 52,88 Q 44,72 52,56 Q 68,32 100,32 Z" fill="#f8fafc" stroke="#475569" stroke-width="1"/>
+                    <circle cx="100" cy="80" r="28" fill="none" stroke="#475569" stroke-width="1.5"/>
+                    <line x1="72" y1="80" x2="128" y2="80" stroke="#b87333" stroke-width="3"/>
+                    <line x1="100" y1="52" x2="100" y2="108" stroke="#b87333" stroke-width="3"/>
+                    <line x1="84" y1="64" x2="116" y2="96" stroke="#b87333" stroke-width="2"/>
+                    <line x1="116" y1="64" x2="84" y2="96" stroke="#b87333" stroke-width="2"/>
+                    <circle cx="100" cy="80" r="7" fill="#b87333"/>
+                    <circle cx="72" cy="80" r="4" fill="#475569"/>
+                    <circle cx="128" cy="80" r="4" fill="#475569"/>
+                    <circle cx="100" cy="52" r="4" fill="#475569"/>
+                    <circle cx="100" cy="108" r="4" fill="#475569"/>
+                    <circle cx="84" cy="64" r="3" fill="#b87333"/>
+                    <circle cx="116" cy="64" r="3" fill="#b87333"/>
+                    <circle cx="84" cy="96" r="3" fill="#b87333"/>
+                    <circle cx="116" cy="96" r="3" fill="#b87333"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-title">
+                <h2>Enterprise AI & Data strategies for central Indiana small business owners</h2>
+                <p>AI and modern data strategies are disrupting businesses of all sizes. Discover tailored services that align cutting-edge AI & analytics technology with your business objectives.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Strategic IT Leadership</h3>
+                    <p>Providing expert guidance to align technology initiatives with your business vision and goals. Fractional CIO and CTO services that deliver executive perspective.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data & Analytics Management</h3>
+                    <p>Leveraging data insights to drive informed decisions and enhance operational efficiency. You can't fix what you can't see.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI and Automation Integration</h3>
+                    <p>Advising on intelligent systems to streamline processes and boost productivity. Get ready for the next level, one step at a time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security and Risk Management</h3>
+                    <p>Protecting your infrastructure with comprehensive security strategies and proactive risk mitigation for peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="process-container">
+            <div class="process-header">
+                <h2>Find more fairways</h2>
+                <p>Our proven three-step process simplifies AI and data strategy for your business</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-number">01</div>
+                    <h3>Strategic Assessment</h3>
+                    <p>We tailor strategies that align technology initiatives precisely with your business objectives. Includes IT spend analysis, regulatory review, and security assessment.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">02</div>
+                    <h3>Financial Business Case</h3>
+                    <p>Simple, clear analysis of current state, future state, and quantifiable financial metrics to rationalize and right size your spend.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">03</div>
+                    <h3>Execution</h3>
+                    <p>We help you build out capabilities in house, or identify, vet, and negotiate the technology partners to achieve your goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="local" id="local">
+        <div class="local-container">
+            <div class="local-content">
+                <h2>Why local expertise matters</h2>
+                <p>We are realists. We have spent decades driving software innovation with Fortune 1000 companies. As vendors, buyers, sellers, marketers, integrators, developers, executives and consultants. In banking, healthcare, retail, and beyond.</p>
+                <p>In 2026, we launched our business to bring the big tech of AI to the central Indiana small business owner. Like in golf, we simplify. Starting with hitting more fairways for your business.</p>
+                <div class="local-highlight">
+                    <p>"Keep it simple. Plan. Aim straight. Then swing with confidence."</p>
+                </div>
+            </div>
+            <div class="local-stats">
+                <div class="stat-box">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Local Focus</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">F500</div>
+                    <div class="stat-label">Enterprise Expertise</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">SMB</div>
+                    <div class="stat-label">Small Business First</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <h2>Ready to unlock strategic IT leadership?</h2>
+        <p>Discover how our fractional CIO, CTO, and CDO services empower your growth by aligning technology with your goals.</p>
+        <a href="#" class="btn-primary">Discover Our Services</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 fairwayadvisors.ai • Locally powered AI & data advisory for Central Indiana</p>
+    </footer>
+</body>
+</html>

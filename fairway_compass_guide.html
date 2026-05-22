@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fairwayadvisors.ai - Strategic AI & Data Advisory for Central Indiana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --gold: #c9882a;
+            --cream: #fdfbf7;
+            --off-white: #f8f6f2;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6678;
+            --border: #e2dfd8;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 6%;
+            background: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-nav svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-text .fairway { color: var(--navy); }
+        .logo-text .advisors { color: var(--gold); }
+        .logo-text .ai { color: var(--navy); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+        .cta-nav {
+            padding: 0.65rem 1.5rem;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cta-nav:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 6rem 6% 5rem;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.03) 0%, rgba(201, 136, 42, 0.02) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .accent {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(201, 136, 42, 0.2);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .compass-large {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 5rem 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 58, 95, 0.1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--gold) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .process {
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            top: 30px;
+            right: -1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .approach {
+            background: white;
+        }
+
+        .approach-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .approach-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-content .highlight {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-style: italic;
+            display: block;
+            margin: 2rem 0;
+        }
+
+        .cta-section {
+            padding: 5rem 6%;
+            background: linear-gradient(135deg, var(--navy) 0%, #2d4f7a 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--gold);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        footer {
+            padding: 3rem 6%;
+            background: var(--navy);
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo-nav">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+                <circle cx="50" cy="50" r="34" fill="none" stroke="#1e3a5f" stroke-width="0.5"/>
+                <line x1="50" y1="12" x2="50" y2="18" stroke="#1e3a5f" stroke-width="2"/>
+                <line x1="88" y1="50" x2="82" y2="50" stroke="#1e3a5f" stroke-width="2"/>
+                <line x1="50" y1="88" x2="50" y2="82" stroke="#1e3a5f" stroke-width="2"/>
+                <line x1="12" y1="50" x2="18" y2="50" stroke="#1e3a5f" stroke-width="2"/>
+                <path d="M 50,50 L 55,30 L 50,36 L 45,30 Z" fill="#c9882a"/>
+                <path d="M 50,50 L 55,70 L 50,64 L 45,70 Z" fill="#1e3a5f"/>
+                <circle cx="50" cy="50" r="4" fill="#c9882a"/>
+            </svg>
+            <div class="logo-text">
+                <span class="fairway">fairway</span><span class="advisors">advisors</span><span class="ai">.ai</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#approach">Approach</a></li>
+        </ul>
+        <button class="cta-nav">Get Started</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h1>It's like having a <span class="accent">caddy</span> for your business.</h1>
+                <p>Fractional CIO, CTO, & AI Advisory services. Extraordinarily local to central Indiana. We deliver tailored strategic advisory and technology leadership services designed to empower growing businesses with expert guidance and measurable results.</p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#approach" class="btn-secondary">Our Approach</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <svg class="compass-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="76" fill="none" stroke="#1e3a5f" stroke-width="2.5"/>
+                    <circle cx="100" cy="100" r="68" fill="none" stroke="#1e3a5f" stroke-width="0.5"/>
+                    <line x1="100" y1="24" x2="100" y2="36" stroke="#1e3a5f" stroke-width="3"/>
+                    <line x1="176" y1="100" x2="164" y2="100" stroke="#1e3a5f" stroke-width="3"/>
+                    <line x1="100" y1="176" x2="100" y2="164" stroke="#1e3a5f" stroke-width="3"/>
+                    <line x1="24" y1="100" x2="36" y2="100" stroke="#1e3a5f" stroke-width="3"/>
+                    <text x="100" y="20" text-anchor="middle" fill="#1e3a5f" font-size="14" font-weight="600">N</text>
+                    <text x="185" y="105" text-anchor="middle" fill="#1e3a5f" font-size="14" font-weight="600">E</text>
+                    <text x="100" y="190" text-anchor="middle" fill="#1e3a5f" font-size="14" font-weight="600">S</text>
+                    <text x="15" y="105" text-anchor="middle" fill="#1e3a5f" font-size="14" font-weight="600">W</text>
+                    <path d="M 100,100 L 110,40 L 100,50 L 90,40 Z" fill="#c9882a" stroke="#c9882a" stroke-width="1"/>
+                    <path d="M 100,100 L 110,160 L 100,150 L 90,160 Z" fill="#1e3a5f" stroke="#1e3a5f" stroke-width="1"/>
+                    <circle cx="100" cy="100" r="8" fill="#c9882a"/>
+                    <line x1="100" y1="50" x2="100" y2="40" stroke="#1e3a5f" stroke-width="1"/>
+                    <circle cx="100" cy="45" r="2" fill="#1e3a5f"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>Enterprise AI & Data strategies for central Indiana small business owners</h2>
+            <p>AI and modern data strategies are disrupting businesses of all sizes. Discover tailored services that align cutting-edge AI & analytics technology with your business objectives, ensuring strategic growth and innovation.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Strategic IT Leadership</h3>
+                <p>Providing expert guidance to align technology initiatives with your business vision and goals.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data & Analytics Management</h3>
+                <p>Leveraging data insights to drive informed decisions and enhance operational efficiency.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI and Automation Integration</h3>
+                <p>Advising on intelligent systems to streamline processes and boost productivity.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>Security and Risk Management</h3>
+                <p>Protecting your infrastructure with comprehensive security strategies and proactive risk mitigation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process" id="process">
+        <div class="section-header">
+            <h2>Find more fairways</h2>
+            <p>Our proven three-step process helps you navigate the complexities of AI and data strategy with confidence.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Strategic Assessment</h3>
+                <p>We tailor strategies that align technology initiatives precisely with your business objectives. Includes IT spend analysis, regulatory review, software vendor and security review to identify data assets, risks, and opportunities for AI deployment.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Financial Business Case</h3>
+                <p>Simple, clear analysis of current state, future state, and quantifiable financial metrics to rationalize and right size your spend.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Execution</h3>
+                <p>We help you build out capabilities in house, or identify, vet, and negotiate the software and technology partners to achieve the financial business case.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section approach" id="approach">
+        <div class="section-header">
+            <h2>Our Approach</h2>
+        </div>
+        <div class="approach-content">
+            <p>We are realists. We have spent decades driving software innovation with Fortune 1000 companies. As vendors, buyers, sellers, marketers, integrators, developers, executives and consultants. In banking, healthcare, retail, and beyond.</p>
+            <span class="highlight">"Keep it simple. Plan. Aim straight. Then swing with confidence."</span>
+            <p>In 2026, we launched our business to bring the big tech of AI to the central Indiana small business owner. Like in golf, we simplify. Starting with hitting more fairways for your business. Consolidating existing IT investments, refining your data strategy, and prioritizing the unique elements of your business where AI can drive immediate value.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to chart your course?</h2>
+        <p>Unlock strategic IT leadership for your business. Let's navigate the AI landscape together.</p>
+        <a href="#" class="btn-primary">Discover Our Services</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 fairwayadvisors.ai • Serving Central Indiana with trust, expertise, and local knowledge</p>
+    </footer>
+</body>
+</html>
