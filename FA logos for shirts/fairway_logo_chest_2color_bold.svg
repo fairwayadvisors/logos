@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" width="900" height="450" role="img" aria-label="Fairway Advisors logo — 2-colour chest mark, bold lines">
+  <!-- Fairway Advisors · 2-colour chest lockup · transparent background · thicker lines for larger chest size -->
+  <!-- Cream: #f2ecdb   ·   Accent (flag + ai/.ai): #c65d3a -->
+  <g stroke="#f2ecdb" fill="none" stroke-linecap="round">
+    <circle cx="75" cy="74" r="5.5" stroke-width="2.4"/>            <!-- hole rim (open) -->
+    <line x1="75" y1="74" x2="75" y2="35" stroke-width="2.6"/>      <!-- pin -->
+  </g>
+  <circle cx="84" cy="65" r="3.3" fill="#f2ecdb"/>                   <!-- ball -->
+  <path d="M75,35 L97,43 L75,51 Z" fill="#c65d3a"/>                  <!-- flag (accent) -->
+  <text x="110" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="32" font-weight="500" letter-spacing="0">
+    <tspan fill="#f2ecdb">f</tspan><tspan fill="#c65d3a">ai</tspan><tspan fill="#f2ecdb">rway</tspan>
+  </text>
+  <text x="110" y="80" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="300" fill="#f2ecdb" textLength="101.3" lengthAdjust="spacing">advisors<tspan fill="#c65d3a">.ai</tspan></text>
+</svg>
