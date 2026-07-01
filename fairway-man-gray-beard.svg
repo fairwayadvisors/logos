@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <!-- Fairway Advisors · Man with a gray beard · locked palette only -->
+  <!-- forest line work · taupe "gray" beard · cream graying strands · one terracotta accent -->
+  <g fill="none" stroke="#2A3D2E" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- polo body / shoulders (cream fill) -->
+    <path d="M 292 992 C 300 876 416 834 520 860 C 556 892 644 892 680 860 C 784 834 900 876 908 992 Z"
+          fill="#F6EFE2" stroke-width="5"/>
+
+    <!-- neck (cream fill + sides) -->
+    <path d="M 556 612 L 552 884 L 648 884 L 644 612 Z" fill="#F6EFE2" stroke="none"/>
+    <path d="M 556 636 L 552 884" stroke-width="5"/>
+    <path d="M 644 636 L 648 884" stroke-width="5"/>
+
+    <!-- head (cream fill) -->
+    <ellipse cx="600" cy="462" rx="146" ry="182" fill="#F6EFE2" stroke-width="5"/>
+
+    <!-- ears -->
+    <path d="M 452 452 C 436 458 436 482 452 490" stroke-width="4.5"/>
+    <path d="M 748 452 C 764 458 764 482 748 490" stroke-width="4.5"/>
+
+    <!-- hairline + short graying hair -->
+    <path d="M 468 452 C 470 372 528 316 600 314 C 672 316 730 372 732 452" stroke-width="5"/>
+    <path d="M 502 430 L 498 392" stroke-width="4.5"/>
+    <path d="M 600 406 L 600 360" stroke-width="4.5"/>
+    <path d="M 698 430 L 702 392" stroke-width="4.5"/>
+    <g stroke="#7A6F5D">
+      <path d="M 550 414 L 546 372" stroke-width="4.5"/>
+      <path d="M 650 414 L 654 372" stroke-width="4.5"/>
+    </g>
+
+    <!-- brows (graying / taupe) -->
+    <path d="M 540 440 C 552 434 566 434 578 438" stroke="#7A6F5D" stroke-width="4.5"/>
+    <path d="M 622 438 C 634 434 648 434 660 440" stroke="#7A6F5D" stroke-width="4.5"/>
+
+    <!-- eyes (calm) -->
+    <path d="M 544 460 C 554 464 566 464 574 460" stroke-width="4.5"/>
+    <path d="M 626 460 C 634 464 646 464 656 460" stroke-width="4.5"/>
+
+    <!-- nose -->
+    <path d="M 600 468 L 592 516 C 596 524 606 524 612 516" stroke-width="4.5"/>
+  </g>
+
+  <!-- beard (taupe = brand "gray") -->
+  <path d="M 470 452
+           C 452 470 452 486 456 496
+           C 448 570 472 668 548 720
+           C 576 742 624 742 652 720
+           C 728 668 752 570 744 496
+           C 748 486 748 470 730 452
+           C 712 500 686 520 648 528
+           C 626 546 618 560 600 560
+           C 582 560 574 546 552 528
+           C 514 520 488 500 470 452 Z"
+        fill="#7A6F5D" stroke="#2A3D2E" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- mustache -->
+  <path d="M 552 540 C 576 556 624 556 648 540 C 636 566 612 578 600 578 C 588 578 564 566 552 540 Z"
+        fill="#7A6F5D" stroke="none"/>
+
+  <!-- graying strands within the beard -->
+  <g fill="none" stroke-linecap="round" opacity="0.6">
+    <path d="M 520 546 C 512 606 524 664 552 702" stroke="#F6EFE2" stroke-width="3.5"/>
+    <path d="M 600 566 C 596 624 600 674 606 706" stroke="#F6EFE2" stroke-width="3.5"/>
+    <path d="M 680 546 C 688 606 676 664 648 702" stroke="#F6EFE2" stroke-width="3.5"/>
+    <path d="M 560 560 C 556 612 560 656 574 694" stroke="#F6EFE2" stroke-width="3"/>
+    <path d="M 640 560 C 644 612 640 656 626 694" stroke="#F6EFE2" stroke-width="3"/>
+  </g>
+
+  <!-- mouth -->
+  <path d="M 576 592 C 590 600 610 600 624 592" fill="none" stroke="#2A3D2E" stroke-width="4"
+        stroke-linecap="round"/>
+
+  <!-- polo collar flaps -->
+  <g fill="#F6EFE2" stroke="#2A3D2E" stroke-width="5" stroke-linejoin="round">
+    <path d="M 520 860 L 566 886 L 528 902 Z"/>
+    <path d="M 680 860 L 634 886 L 672 902 Z"/>
+  </g>
+
+  <!-- terracotta accent: placket + button -->
+  <line x1="600" y1="888" x2="600" y2="950" stroke="#C65D3A" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="600" cy="902" r="8" fill="#C65D3A"/>
+</svg>

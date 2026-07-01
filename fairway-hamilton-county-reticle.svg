@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <!-- Fairway Advisors · Hamilton County reticle map · locked palette only -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- lightweight reticle: two faint rings + crosshair -->
+    <g stroke="#2A3D2E">
+      <circle cx="600" cy="600" r="360" stroke-width="2.5" opacity="0.14"/>
+      <circle cx="600" cy="600" r="250" stroke-width="2.5" opacity="0.20"/>
+    </g>
+    <g stroke="#2A3D2E" stroke-width="2" opacity="0.22">
+      <line x1="600" y1="150" x2="600" y2="560"/>
+      <line x1="600" y1="640" x2="600" y2="1050"/>
+      <line x1="150" y1="600" x2="560" y2="600"/>
+      <line x1="640" y1="600" x2="1050" y2="600"/>
+    </g>
+
+    <!-- county boundary (stylised rounded square) -->
+    <rect x="250" y="250" width="700" height="700" rx="26" stroke="#2A3D2E" stroke-width="4" opacity="0.55"/>
+
+    <!-- primary roads: US-31 (N-S) and SR-32 (E-W) -->
+    <g stroke="#2A3D2E" stroke-width="2.5" opacity="0.32">
+      <line x1="482" y1="258" x2="482" y2="942"/>
+      <line x1="300" y1="404" x2="820" y2="404"/>
+    </g>
+
+    <!-- White River: wavy N-S line through the east -->
+    <path d="M 726 262 Q 690 350 760 432 Q 820 500 730 604 Q 660 690 700 800 Q 730 890 648 940"
+          stroke="#2A3D2E" stroke-width="4" opacity="0.5"/>
+
+    <!-- city markers (forest ring-dots) -->
+    <g>
+      <!-- Westfield (north-central) -->
+      <circle cx="500" cy="400" r="12" fill="#2A3D2E" stroke="none"/>
+      <circle cx="500" cy="400" r="22" stroke="#2A3D2E" stroke-width="2.5" opacity="0.4"/>
+      <!-- Carmel (south of Westfield) -->
+      <circle cx="480" cy="648" r="12" fill="#2A3D2E" stroke="none"/>
+      <circle cx="480" cy="648" r="22" stroke="#2A3D2E" stroke-width="2.5" opacity="0.4"/>
+      <!-- Noblesville (northeast, county seat) -->
+      <circle cx="762" cy="432" r="12" fill="#2A3D2E" stroke="none"/>
+      <circle cx="762" cy="432" r="22" stroke="#2A3D2E" stroke-width="2.5" opacity="0.4"/>
+    </g>
+
+    <!-- terracotta corner target brackets (outer frame) -->
+    <g stroke="#C65D3A" stroke-width="6">
+      <path d="M 180 232 L 180 292 M 180 232 L 240 232"/>
+      <path d="M 1020 232 L 1020 292 M 1020 232 L 960 232"/>
+      <path d="M 180 968 L 180 908 M 180 968 L 240 968"/>
+      <path d="M 1020 968 L 1020 908 M 1020 968 L 960 968"/>
+    </g>
+
+    <!-- terracotta focal: centre aim marker -->
+    <circle cx="600" cy="600" r="26" stroke="#C65D3A" stroke-width="3"/>
+    <circle cx="600" cy="600" r="6" fill="#C65D3A" stroke="none"/>
+  </g>
+
+  <!-- labels -->
+  <g font-family="'DejaVu Sans Mono', ui-monospace, monospace" fill="#2A3D2E">
+    <text x="500" y="352" font-size="26" font-weight="700" letter-spacing="3" text-anchor="middle">WESTFIELD</text>
+    <text x="480" y="704" font-size="26" font-weight="700" letter-spacing="3" text-anchor="middle">CARMEL</text>
+    <text x="762" y="492" font-size="26" font-weight="700" letter-spacing="3" text-anchor="middle">NOBLESVILLE</text>
+  </g>
+  <g font-family="'DejaVu Sans Mono', ui-monospace, monospace">
+    <text x="600" y="180" font-size="24" fill="#C65D3A" letter-spacing="9" text-anchor="middle">HAMILTON COUNTY · INDIANA</text>
+    <text x="1020" y="1028" font-size="20" fill="#7A6F5D" letter-spacing="4" text-anchor="end">40.0&#176;N &#183; 86.0&#176;W</text>
+  </g>
+</svg>
