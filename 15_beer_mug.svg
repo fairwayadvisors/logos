@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<clipPath id="mug"><rect x="158" y="176" width="86" height="128" rx="8"/></clipPath>
+<rect x="158" y="176" width="86" height="128" rx="8" fill="#F6EFE2"/>
+<rect x="158" y="200" width="86" height="110" fill="#C65D3A" clip-path="url(#mug)"/>
+<g fill="#F6EFE2" opacity="0.55"><circle cx="178" cy="240" r="4"/><circle cx="210" cy="262" r="5"/><circle cx="226" cy="232" r="3.5"/><circle cx="190" cy="280" r="3.5"/></g>
+<rect x="158" y="176" width="86" height="128" rx="8" fill="none" stroke="#2A3D2E" stroke-width="4.5"/>
+<path d="M244,204 q34,2 34,34 q0,32 -34,34" stroke="#2A3D2E" stroke-width="9" fill="none"/>
+<path d="M152,182 Q150,162 168,162 Q172,148 190,154 Q200,142 214,152 Q232,146 236,162 Q252,164 250,182 Z" fill="#F6EFE2" stroke="#2A3D2E" stroke-width="4"/>
+</svg>

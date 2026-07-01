@@ -1,0 +1,12 @@
+<svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="120" fill="#2a3d2e"/>
+  <circle cx="75" cy="74" r="6" fill="#f6efe2" opacity="0.55"/>
+  <circle cx="75" cy="74" r="4" fill="#f6efe2" opacity="0.85"/>
+  <circle cx="84" cy="65" r="3.5" fill="#2a3d2e" stroke="#1f2e23" stroke-width="0.5"/>
+  <line x1="75" y1="74" x2="75" y2="35" stroke="#f6efe2" stroke-width="1.5"/>
+  <path d="M75,35 L97,43 L75,51 Z" fill="#c65d3a"/>
+  <text x="110" y="58" font-family="'Helvetica Neue',Arial,sans-serif" font-size="32" font-weight="500" letter-spacing="0">
+    <tspan fill="#f6efe2">f</tspan><tspan fill="#c65d3a">ai</tspan><tspan fill="#f6efe2">rway</tspan>
+  </text>
+  <text x="110" y="80" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="300" fill="#cbb89a" opacity="0.95" textLength="101.3" lengthAdjust="spacing">advisors<tspan fill="#c65d3a">.ai</tspan></text>
+</svg>

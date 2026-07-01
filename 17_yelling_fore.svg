@@ -1,0 +1,17 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<line x1="118" y1="356" x2="270" y2="356" stroke="#A89E88" stroke-width="3"/>
+<path d="M150,250 L138,352" stroke="#2A3D2E" stroke-width="5"/>
+<path d="M150,250 L170,352" stroke="#2A3D2E" stroke-width="5"/>
+<line x1="126" y1="353" x2="148" y2="353" stroke="#2A3D2E" stroke-width="5"/>
+<line x1="160" y1="353" x2="182" y2="353" stroke="#2A3D2E" stroke-width="5"/>
+<line x1="150" y1="250" x2="152" y2="156" stroke="#2A3D2E" stroke-width="5"/>
+<path d="M152,176 C134,186 128,206 132,224" stroke="#2A3D2E" stroke-width="5"/>
+<path d="M152,170 C166,158 176,150 184,140" stroke="#2A3D2E" stroke-width="5"/>
+<path d="M184,146 q8,-6 8,4 q0,8 -8,6" stroke="#2A3D2E" stroke-width="4" fill="none"/>
+<circle cx="158" cy="126" r="18" stroke="#2A3D2E" stroke-width="5" fill="none"/>
+<path d="M142,116 A18,18 0 0 1 175,114 L194,117 L176,120 Z" fill="#C65D3A"/>
+<path d="M200,110 a16,16 0 0 1 0,32" stroke="#C65D3A" stroke-width="3" fill="none" opacity="0.9"/>
+<path d="M200,98 a28,28 0 0 1 0,56" stroke="#C65D3A" stroke-width="3" fill="none" opacity="0.9"/>
+<path d="M200,86 a40,40 0 0 1 0,80" stroke="#C65D3A" stroke-width="3" fill="none" opacity="0.9"/>
+<text x="246" y="120" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="700" fill="#C65D3A">FORE!</text>
+</svg>

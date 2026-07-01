@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><linearGradient id="slope" x1="0" y1="0" x2="1" y2="0.5"><stop offset="0" stop-color="#1F2E23"/><stop offset="1" stop-color="#4a6450"/></linearGradient></defs>
+<ellipse cx="200" cy="218" rx="150" ry="96" fill="url(#slope)" stroke="#2A3D2E" stroke-width="3"/>
+<path d="M70,172 Q200,154 330,172" stroke="#A89E88" stroke-width="2" opacity="0.45"/>
+<path d="M70,202 Q200,184 330,202" stroke="#A89E88" stroke-width="2" opacity="0.45"/>
+<path d="M70,234 Q200,216 330,234" stroke="#A89E88" stroke-width="2" opacity="0.45"/>
+<path d="M70,264 Q200,246 330,264" stroke="#A89E88" stroke-width="2" opacity="0.45"/>
+<ellipse cx="250" cy="182" rx="13" ry="5" fill="#1F2E23" stroke="#F6EFE2" stroke-width="2"/>
+<line x1="250" y1="182" x2="250" y2="124" stroke="#F6EFE2" stroke-width="3"/>
+<path d="M250,124 l22,7 l-22,7 z" fill="#C65D3A"/>
+<circle cx="150" cy="262" r="10" fill="#F6EFE2" stroke="#2A3D2E" stroke-width="2.5"/>
+<path d="M158,258 Q150,200 248,186" stroke="#C65D3A" stroke-width="3" stroke-dasharray="3 7" fill="none"/>
+<path d="M243,184 l8,1 l-5,7 z" fill="#C65D3A"/>
+</svg>
